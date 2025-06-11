@@ -9,6 +9,7 @@ from flask import Flask, request
 import threading
 import requests
 from studybot import app  # 👈 Reuse same Flask app
+from studybot import poll_survey_responses
 
 
 load_dotenv()
