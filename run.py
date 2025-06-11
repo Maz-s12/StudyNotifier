@@ -4,7 +4,7 @@ import time
 
 # Start Flask app in thread
 def start_flask():
-    os.system("python study_email_bot.py")
+    os.system("python discord_bot.py")
 
 # Start Discord bot
 def start_discord():
