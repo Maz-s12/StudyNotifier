@@ -145,3 +145,5 @@ if __name__ == "__main__":
     flask_thread.start()
     
     bot.run(TOKEN)
+    time.sleep(5)
+    threading.Thread(target=poll_survey_responses, daemon=True).start()
