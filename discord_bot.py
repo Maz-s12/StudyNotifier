@@ -137,7 +137,9 @@ def receive_survey():
 
 def run_flask():
     print("🚀 Starting Flask on port 6000...")
-    flask_app.run(host="0.0.0.0", port=5000, use_reloader=False, debug=False)
+    port = int(os.environ.get("PORT", 5000))
+
+    flask_app.run(host="0.0.0.0", port=port, use_reloader=False, debug=False)
 
 if __name__ == "__main__":
     # Start Flask in a separate thread
