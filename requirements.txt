@@ -1,5 +1,4 @@
+discord.py
 Flask
-openai
-twilio
-requests
 python-dotenv
+requests
