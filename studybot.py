@@ -17,6 +17,8 @@ SEEN_RESPONSES_FILE = "seen_responses.json"
 
 
 def poll_survey_responses():
+    time.sleep(10)
+
     print("🔄 Checking for new eligible responses...")
 
     seen = load_seen_responses()
