@@ -164,7 +164,7 @@ def notify_related_email(summary, reason, from_email, from_name):
     
     try:
         # Forward to Discord bot running on port 6000
-        response = requests.post(f"{WEBHOOK_BASE}/notify", json=payload, timeout=5)
+        response = requests.post(f"{WEBHOOK_BASE}/notify", json=payload, timeout=50)
 
         if response.status_code == 200:
             print("✅ Forwarded to Discord bot successfully")
@@ -329,7 +329,7 @@ def receive_survey():
     
     try:
         # Forward the request to your Discord bot running on port 6000
-        response = requests.post(f"{WEBHOOK_BASE}/notify", json=data, timeout=5)
+        response = requests.post(f"{WEBHOOK_BASE}/notify", json=data, timeout=50)
 
         
         if response.status_code == 200:
@@ -362,4 +362,3 @@ def is_response_eligible(response):
 
 if __name__ == "__main__":
     import os
-    poll_survey_responses()  # start background loop

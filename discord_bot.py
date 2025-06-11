@@ -140,6 +140,8 @@ def receive_survey():
 def run_flask():
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+    print("✅ Discord bot Flask server is ready at /notify")
+
 
 if __name__ == "__main__":
     threading.Thread(target=poll_survey_responses, daemon=True).start()
