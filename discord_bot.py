@@ -141,9 +141,9 @@ def run_flask():
     app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
+    threading.Thread(target=poll_survey_responses, daemon=True).start()
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
     
     bot.run(TOKEN)
     time.sleep(5)
-    threading.Thread(target=poll_survey_responses, daemon=True).start()
