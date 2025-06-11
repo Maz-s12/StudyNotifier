@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from flask import Flask, request
 import threading
 import requests
+from studybot import app  # 👈 Reuse same Flask app
+
 
 load_dotenv()
 
@@ -134,21 +136,12 @@ def receive_survey():
     except Exception as e:
         print(f"Error processing notification: {e}")
         return "Error processing notification", 500
-
 def run_flask():
-    print("🚀 Starting Flask on port 6000...")
     port = int(os.environ.get("PORT", 5000))
-
-    flask_app.run(host="0.0.0.0", port=port, use_reloader=False, debug=False)
+    app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
-    # Start Flask in a separate thread
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
     
-    # Give Flask a moment to start
-    import time
-    time.sleep(1)
-    
-    # Then start the bot (this will block)
-    bot.run(TOKEN)
+    bot.run(DISCORD_TOKEN)
